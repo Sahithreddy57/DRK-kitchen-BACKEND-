@@ -1,23 +1,4 @@
-// const mongoose = require("mongoose");
 
-// const productVariantSchema = new mongoose.Schema(
-//   {
-//     product_id: { type: mongoose.Schema.Types.ObjectId, ref: "Product", required: true },
-//     variant_type: { type: String, required: true, trim: true },
-//     variant_name: { type: String, required: true, trim: true },
-//     quantity_value: { type: Number, required: true, min: 0 },
-//     quantity_unit: { type: String, required: true, trim: true },
-//     member_count: { type: Number },
-//     price: { type: Number, required: true, min: 0 },
-//     status: { type: String, enum: ["active", "inactive"], default: "active" },
-//     availability: { type: Boolean, default: true },
-//   },
-//   { timestamps: true }
-// );
-
-// productVariantSchema.index({ product_id: 1, status: 1 });
-
-// module.exports = mongoose.model("ProductVariant", productVariantSchema);
 
 const mongoose = require("mongoose");
 

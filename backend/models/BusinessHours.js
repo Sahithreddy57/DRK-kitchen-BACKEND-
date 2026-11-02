@@ -1,16 +1,4 @@
-// const mongoose = require("mongoose");
 
-// const businessHoursSchema = new mongoose.Schema(
-//   {
-//     day: { type: String, required: true, unique: true, enum: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] },
-//     is_open: { type: Boolean, default: true },
-//     open_time: { type: String },
-//     close_time: { type: String },
-//   },
-//   { timestamps: true }
-// );
-
-// module.exports = mongoose.model("BusinessHours", businessHoursSchema);
 
 const mongoose = require("mongoose");
 

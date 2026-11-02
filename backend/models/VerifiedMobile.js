@@ -2,8 +2,7 @@ const mongoose = require("mongoose");
 
 const verifiedMobileSchema = new mongoose.Schema(
   {
-    // 10 అంకెల normalized number. unique index = DB స్థాయి రక్షణ.
-    // ACTIVE మరియు INACTIVE రెండూ "USED".
+
     mobile: {
       type: String,
       required: true,
@@ -27,7 +26,6 @@ const verifiedMobileSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-// History ఎప్పుడూ delete కాకూడదు (query స్థాయి delete లు block)
 verifiedMobileSchema.pre(
   ["deleteOne", "deleteMany", "findOneAndDelete"],
   { query: true, document: false },
