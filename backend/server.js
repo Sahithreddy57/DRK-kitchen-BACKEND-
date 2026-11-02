@@ -78,7 +78,7 @@ const customerAuthRoutes = require("./Routes/admin/customerAuthRoutes");
 const customerAddressRoutes = require("./Routes/admin/customerAddressRoutes");
 const customerOrderRoutes = require("./Routes/admin/customerOrderRoutes");
 const customerMenuRoutes = require("./Routes/admin/customerMenuRoutes");
-
+const customerKitchenRoutes = require("./Routes/admin/customerKitchenRoutes");
 const app = express();
 
 app.use(cors({
@@ -113,6 +113,8 @@ app.use("/api/customer/menu", customerMenuRoutes);
 app.use("/api/customer/auth", customerAuthRoutes);
 app.use("/api/customer/addresses", customerAddressRoutes);
 app.use("/api/customer/orders", customerOrderRoutes);
+app.use("/api/customer/kitchen", customerKitchenRoutes);
+
 
 connectDB();
 app.listen(5000, () => {

@@ -1,3 +1,10 @@
+// import api from './api'
+// export const registerAdmin = (data) => api.post('/admin/auth/register', data)
+// export const loginAdmin = (data) => api.post('/admin/auth/login', data)
+// export const logoutAdmin = () => api.post('/admin/auth/logout')
+// export const getMe =() => api.get('/admin/auth/me')
+// export const getDashboard = () => api.get('/admin/dashboard')
+// export const getRecentOrders = () => api.get('/admin/dashboard/recent-orders')
 import api from './api'
 export const registerAdmin = (data) => api.post('/admin/auth/register', data)
 export const loginAdmin = (data) => api.post('/admin/auth/login', data)
@@ -5,3 +12,5 @@ export const logoutAdmin = () => api.post('/admin/auth/logout')
 export const getMe =() => api.get('/admin/auth/me')
 export const getDashboard = () => api.get('/admin/dashboard')
 export const getRecentOrders = () => api.get('/admin/dashboard/recent-orders')
+export const pauseOrders = (payload) => api.post('/admin/dashboard/pause-orders', payload)
+export const resumeOrders = () => api.post('/admin/dashboard/resume-orders')
