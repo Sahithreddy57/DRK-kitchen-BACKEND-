@@ -450,7 +450,6 @@ const getActiveHundi = async (req, res) => {
     return error(res, err.message, 500);
   }
 };
-
 const getHundiById = async (req, res) => {
   try {
     const pkg = await HundiPackage.findById(req.params.id);
