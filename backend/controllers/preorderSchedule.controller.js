@@ -2247,6 +2247,19 @@ const rangeFilter = (fromMs, toMs) => {
   if (PREORDER_TYPE) f.order_type = PREORDER_TYPE
   return f
 }
+// Completed orders are finished, so they no longer hold a slot.
+// The schedule list still shows them. Only the capacity count skips them.
+const FREES_SLOT = [
+  ...new Set(
+    ['COMPLETED', 'DELIVERED', 'PICKED_UP', ORDER_STATUS.COMPLETED].filter(Boolean)
+  ),
+]
+
+const capacityFilter = (fromMs, toMs) => {
+  const f = rangeFilter(fromMs, toMs)
+  f.status = { $nin: [...NOT_BOOKED, ...FREES_SLOT] }
+  return f
+}
 const dayRange = (date) => [instant(date, '00:00'), instant(addDays(date, 1), '00:00')]
 
 const slotStartFor = (s, date, mins) => {
@@ -2340,7 +2353,9 @@ const isClosed = (s, date) => {
 async function countsFor(dates, s) {
   const from = instant(dates[0], '00:00')
   const to = instant(addDays(dates[dates.length - 1], 1), '00:00')
-  const rows = await Order.find(rangeFilter(from, to)).select('requested_at has_hundi').lean()
+  // const rows = await Order.find(rangeFilter(from, to)).select('requested_at has_hundi').lean()
+
+const rows = await Order.find(capacityFilter(from, to)).select('requested_at has_hundi').lean()
 
   const slot = {}
   const total = {}
